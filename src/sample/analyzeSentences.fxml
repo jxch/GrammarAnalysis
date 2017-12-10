@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Controller"
+            prefHeight="400.0" prefWidth="600.0" vgap="10" hgap="10">
+    <Label text="请输入句子" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="sentence" promptText="abcde#" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Button fx:id="go" text="分析" onAction="#go" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Button text="Clear" onAction="#sentenceClear" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+    <TableView fx:id="tableS" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="3">
+        <columns>
+        </columns>
+    </TableView>
+
+</GridPane>
