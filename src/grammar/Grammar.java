@@ -135,7 +135,6 @@ public class Grammar {
         this.nonTerminator = nonTerminator;
         this.starter = starter;
         this.precept = precept;
-        update();
     }
 
     /**
@@ -322,4 +321,3 @@ public class Grammar {
         return symbolFollowList;
     }
 }
-

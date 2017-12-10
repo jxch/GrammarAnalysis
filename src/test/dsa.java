@@ -1,21 +1,25 @@
 package test;
 
 import grammar.Grammar;
+import grammar.LL1Grammar;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class dsa {
     public static void main(String[] args) {
         /*
-         * S->bA
-         * A->ε
+         * S→aA
+         * S→d
+         * A→bAS
+         * A→ε
          */
-        Character[] ter = {'a', 'b','ε'};
+        Character[] ter = {'a', 'b', 'ε','d'};
         Character[] nonTer = {'S', 'A'};
-        String[] p1 = {"bA"};
-        String[] p2 = {"ε"};
+        String[] p1 = {"aA","d"};
+        String[] p2 = {"ε","bAS"};
         HashSet<Character> terminator = new HashSet<>(Arrays.asList(ter));
         HashSet<Character> nonTerminator = new HashSet<>(Arrays.asList(nonTer));
         HashMap<Character, HashSet<String>> precept = new HashMap<>();
@@ -27,7 +31,11 @@ public class dsa {
         precept.put(starter, r1);
         precept.put('A', r2);
 
-        Grammar grammar = new Grammar(terminator, nonTerminator, starter, precept);
-        System.out.print(grammar.getFirstList().toString() + grammar.isGrammar() + grammar.getFollowList().toString());
+        LL1Grammar grammar = new LL1Grammar(terminator, nonTerminator, starter, precept);
+        grammar.update();
+        System.out.println(grammar.getFirstList().toString() + grammar.isGrammar() + grammar.getFollowList().toString());
+        System.out.println(grammar.isLL1Grammar());
+
+        System.out.println(grammar.getSelectList().toString());
     }
 }
