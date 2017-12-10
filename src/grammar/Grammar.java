@@ -8,8 +8,8 @@ import java.util.Map;
  * 这是一个文法，
  * 一个文法包含（终结符，非终结符，起始符和文法方案（文法产生式））
  * 这个类提供了每个非终结符的first集和follow集，
- * 如果存在左递归，该类提供查询哪些符号产生左递归，
  * 该类还可判断该文法是否符合标准，是否存在左递归。
+ * 如果存在左递归，该类提供查询哪些符号产生左递归以及消除左递归。
  * @see #update() 该类允许重新设置终结符、非终结符、文法方案（文法产生式）集合和起始符。但是必须调用update方法更新文法。
  */
 
@@ -124,7 +124,8 @@ public class Grammar {
     }
 
     /**
-     * 构造方法，该方法内部已经调用update()方法更新。
+     * 构造方法，该方法内部并未调用update()方法更新。
+     * @see #update() 请调用update方法更新。
      * @param terminator 文法终结符。
      * @param nonTerminator 文法非终结符。
      * @param starter 文法起始符。
@@ -320,4 +321,6 @@ public class Grammar {
 
         return symbolFollowList;
     }
+
+
 }
